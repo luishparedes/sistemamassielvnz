@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cierre de Caja Inteligente</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Pantalla Principal -->
+  <div id="panelPrincipal" class="panel">
+    <h1>Cierre de Caja Inteligente</h1>
+    <form id="ventasForm">
+      <!-- Tasa del Día -->
+      <label for="tasaDolar">Tasa del Día (Bs por 1 USD):</label>
+      <input type="number" id="tasaDolar" placeholder="Ej: 68" required>
+
+      <!-- Fondo de Caja -->
+      <label for="fondoCaja">Fondo de Caja (Bs):</label>
+      <input type="number" id="fondoCaja" placeholder="Ingrese monto" required>
+
+      <!-- Ventas -->
+      <label for="pagoMovil">Ventas en Pago Móvil (Bs):</label>
+      <input type="number" id="pagoMovil" placeholder="Ingrese monto">
+
+      <label for="biopago">Ventas en Biopago (Bs):</label>
+      <input type="number" id="biopago" placeholder="Ingrese monto">
+
+      <label for="pos">Ventas en Punto de Venta (Bs):</label>
+      <input type="number" id="pos" placeholder="Ingrese monto">
+
+      <label for="comisionPos">% Comisión POS:</label>
+      <input type="number" id="comisionPos" placeholder="Ej: 2" step="0.1">
+
+      <label for="zelle">Ventas en Zelle (USD):</label>
+      <input type="number" id="zelle" placeholder="Ingrese monto">
+
+      <label for="creditoBs">Ventas a Crédito (Bs):</label>
+      <input type="number" id="creditoBs" placeholder="Ingrese monto">
+
+      <label for="creditoUsd">Ventas a Crédito (USD):</label>
+      <input type="number" id="creditoUsd" placeholder="Ingrese monto">
+
+      <label for="pagoProveedores">Pagos a Proveedores (Bs):</label>
+      <input type="number" id="pagoProveedores" placeholder="Ingrese monto">
+
+      <button type="submit">Guardar y Calcular</button>
+    </form>
+
+    <div class="resultados">
+      <h2>Resultados del Día</h2>
+      <p><strong>Total del Día (Bs):</strong> <span id="totalDia">0.00</span></p>
+      <p><strong>Acumulado Semanal (Bs):</strong> <span id="acumuladoSemanal">0.00</span></p>
+      <p><strong>50% Reinversión (Bs):</strong> <span id="reinversion">0.00</span></p>
+      <p><strong>30% Gastos Operativos (Bs):</strong> <span id="gastos">0.00</span></p>
+      <p><strong>20% Sueldo (Bs):</strong> <span id="sueldo">0.00</span></p>
+      <p><strong>Ahorro (Bs):</strong> <span id="ahorro">0.00</span></p>
+      <p><strong>Fondo de Caja Final (Bs):</strong> <span id="fondoFinal">0.00</span></p>
+    </div>
+
+    <button id="verMovimientos">Ver Movimientos</button>
+    <button id="reiniciarSemana">Reiniciar Semana</button>
+  </div>
+
+  <!-- Pantalla de Movimientos -->
+  <div id="panelMovimientos" class="panel" style="display: none;">
+    <h2>Movimientos Diarios</h2>
+    <table id="movimientosTable">
+      <thead>
+        <tr>
+          <th>Día</th>
+          <th>Total (Bs)</th>
+          <th>Reinversión</th>
+          <th>Gastos</th>
+          <th>Sueldo</th>
+          <th>Ahorro</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Aquí se llenarán los movimientos -->
+      </tbody>
+    </table>
+    <button id="copiarPortapapeles">Copiar Información</button>
+    <button id="volverPrincipal">Volver al Panel Principal</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
